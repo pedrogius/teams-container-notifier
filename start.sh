@@ -13,7 +13,7 @@ for container in $listOfContainers
 do
   if ! (echo $containers | grep -q $container )
   then 
-    if ! (cat $notifiedFile | grep -q $container)
+    if ! (cat $notifiedFile | grep -q $container); then
       echo "$container offline"
       message="Warning! The container $container is down!"
 
