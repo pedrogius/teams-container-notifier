@@ -1,38 +1,36 @@
+# Teams container notifier
 
-# Discord container notifier
-
-Notify at Discord channel when docker containers are down.
+Notify a Teams channel when docker containers are down. Keeps track of containers that are down and notifies only once, and again when they are back up.
 
 ## How to use
 
 ### Create your `config.sh` file.
 
-  ```sh
-  cp config.sh.example config.sh
-  ```
+```sh
+cp config.sh.example config.sh
+```
 
 ### Edit the `config.sh`
 
-  ```sh
-  url='https://discord.com/api/webhooks/99999999999999999999/______very_crazy_hash______'
-  username='MyBotName'
-  listOfContainers="mycontainer1 mycontainer2"
-  ```
+```sh
+teamsWebhookUrl='https://teams.microsoft.com/webhook'
+listOfContainers="mycontainer1 mycontainer2"
+```
 
 ### Start the script
 
-  ```sh
-  ./start.sh
-  ```
+```sh
+./start.sh
+```
 
 ### Work with task scheduling
 
 To work with a schedule to execute this script you can set following below.
 
-- Set the env `DISCORD_CONTAINER_NOTIFIER_DIR` globally to current dir
+- Set the env `TEAMS_CONTAINER_NOTIFIER_DIR` globally to current dir
 
 ```sh
-sudo sh -c "echo \"DISCORD_CONTAINER_NOTIFIER_DIR=$(pwd)\" >> /etc/environment"
+sudo sh -c "echo \"TEAMS_CONTAINER_NOTIFIER_DIR=$(pwd)\" >> /etc/environment"
 ```
 
 - Add scheduled job
@@ -40,7 +38,7 @@ sudo sh -c "echo \"DISCORD_CONTAINER_NOTIFIER_DIR=$(pwd)\" >> /etc/environment"
 ```sh
 crontab -e
 
-  */5 * * * * sh -c "$DISCORD_CONTAINER_NOTIFIER_DIR/start.sh"
+  */5 * * * * sh -c "$TEAMS_CONTAINER_NOTIFIER_DIR/start.sh"
 ```
 
 ### Monitor job schedule logs

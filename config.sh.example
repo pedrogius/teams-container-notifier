@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-url='___Discord_link___'
-username='DiscordBotName'
-listOfContainers="conaiter1 container2"
+teamsWebhookUrl='___Teams_link___'
+listOfContainers="container1 container2"
